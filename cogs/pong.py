@@ -13,5 +13,6 @@ class Pong(commands.Cog, name='Pong Cog'):
     async def pong(self, ctx: commands.Context):
         await ctx.send('Ping')
 
+
 def setup(bot: commands.Bot):
     bot.add_cog(Pong(bot))
