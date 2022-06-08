@@ -39,12 +39,14 @@ def get_cogs():
     for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
             cogs.append("cogs." + filename[:-3])
+            logging.info(f'Found: {filename}!')
     return cogs
 
 
 def load_cogs():
     for cog in get_cogs():
         bot.load_extension(cog)
+        logging.info(f'Loaded: {cog}')
 
 
 # Events
