@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix=PREFIX)
 ERROR_MESSAGE = f"Sorry, that doesn't look like a valid command. You can use {PREFIX}help to see my commands."
 ENV_VARIABLES = ['DISCORD_TOKEN', 'BOT_ADMIN_ID']
 
-logging.basicConfig(filename='log',
+logging.basicConfig(filename='log.txt',
                     filemode='a',
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S',
