@@ -38,26 +38,6 @@ def check_env():
         logging.info('Environment variables checked and valid.')
 
 
-def get_cogs():
-    cogs = []
-    logging.info('Searching for cogs...')
-    for filename in os.listdir('./cogs'):
-        if filename.endswith('.py'):
-            cogs.append("cogs." + filename[:-3])
-            logging.info(f'Found: {filename[:-3]}!')
-    logging.info(f'Search complete. Found {len(cogs)} cogs')
-    return cogs
-
-
-def load_cogs():
-    counter = 0
-    for cog in get_cogs():
-        bot.load_extension(cog)
-        logging.info(f'Loaded: {cog}')
-        counter += 1
-    logging.info(f'Loading Complete. Loaded {counter} cogs.')
-
-
 # Events
 
 
@@ -120,7 +100,10 @@ if __name__ == '__main__':
     check_env()
     TOKEN = os.getenv('DISCORD_TOKEN')
 
-    load_cogs()
+    for folder in os.listdir("cogs"):
+        if os.path.exists(os.path.join('cogs', folder, 'cog.py')):
+            bot.load_extension(f'cogs.{folder}.cog')
+            logging.info(f'Loading: cogs.{folder}.cog')
 
     logging.info('Bot is now running.')
     bot.run(TOKEN)
