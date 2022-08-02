@@ -15,7 +15,7 @@ class Dice(commands.Cog, name='Random'):
             await ctx.send(f'Rolling a {sides} sided die {qty} times...')
             for i in range(int(qty)):
                 roll = randint(1, int(sides))
-                rolls.append(f'{roll} ')
+                rolls.append(f'{roll}')
             await ctx.send(rolls)
         except ValueError:
             await ctx.send('Invalid dice format. Please use [qty]d[sides]. (e.g. 2d6 will produce 2 dice with 6 sides each')
